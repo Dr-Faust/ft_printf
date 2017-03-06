@@ -6,7 +6,7 @@
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 11:58:45 by opodolia          #+#    #+#             */
-/*   Updated: 2017/03/06 11:58:48 by opodolia         ###   ########.fr       */
+/*   Updated: 2017/03/06 19:53:32 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,11 @@ static void	ft_parse_nmods(t_mods *mods, char c, intmax_t n)
 	{
 		mods->flags.plus = 0;
 		mods->flags.space = 0;
+	}
+	if (c == 'f' || c == 'e' || c == 'g' || c == 'a')
+	{
+		if (mods->flags.hash == yes)
+			mods->flags.hash == dot;
 	}
 	if (n == 0 && (c == 'x' || c == 'X'))
 		mods->flags.hash = 0;
@@ -93,11 +98,14 @@ static char	*ft_parse_neg(intmax_t n, t_mods *mods)
 		str = (n < 0) ? ft_itoa_qual((long long)-n, mods, 1) :
 			ft_itoa_qual((long long)n, mods, 1);
 	else if (mods->length == j)
-		str = (n < 0) ? ft_itoa_qual(-n, mods, 1) :
-			ft_itoa_qual(n, mods, 1);
+		str = (n < 0) ? ft_itoa_qual((intmax_t)-n, mods, 1) :
+			ft_itoa_qual((intmax_t)n, mods, 1);
 	else if (mods->length == z)
 		str = (n < 0) ? ft_itoa_qual((size_t)-n, mods, 1) :
 			ft_itoa_qual((size_t)n, mods, 1);
+	else if (mods->length == L)
+		str = (n < 0) ? ft_itoa_qual((long double)-n, mods, 1) :
+			ft_itoa_qual((long double)n, mods, 1);
 	if (n < 0)
 		return (ft_strjoin("-", str));
 	return (str);
@@ -114,7 +122,7 @@ char		*ft_convert_len(va_list ap, t_mods *mods, char c)
 	else if (mods->length == h)
 		return (ft_itoa_qual((short)n, mods, 0));
 	else if (mods->length == l || mods->length == ll || mods->length == j
-			|| mods->length == z)
+			|| mods->length == z || mods->length == L)
 		return (ft_parse_neg(n, mods));
 	return (ft_itoa_qual((int)n, mods, 0));
 }

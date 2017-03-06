@@ -6,7 +6,7 @@
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 12:03:22 by opodolia          #+#    #+#             */
-/*   Updated: 2017/03/06 12:03:28 by opodolia         ###   ########.fr       */
+/*   Updated: 2017/03/06 19:53:29 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef enum
 	ll,
 	j,
 	z,
+	L,
 }	t_length;
 
 typedef enum
@@ -37,7 +38,8 @@ typedef enum
 	yes,
 	o,
 	x,
-	X
+	X,
+	dot
 }	t_hash;
 
 typedef struct	s_flags
@@ -69,6 +71,7 @@ int				ft_no_qual(t_mods *mods);
 int				ft_numb(va_list ap, t_mods *mods);
 int				ft_char(va_list ap, t_mods *mods);
 int				ft_str(va_list ap, t_mods *mods);
+int				ft_float(va_list ap, t_mods *mods);
 
 int				ft_size(char *str, t_mods *mods);
 int				ft_is_mb(char *s);

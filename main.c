@@ -57,7 +57,7 @@ int	main(void)
 	ft_printf("\tFt:\t|%s|\n", "ПрэвЭд!");
 	printf("\tOrigin:\t|%s|\n","ç±³");fflush(stdout);
 	ft_printf("\tFt:\t|%s|\n","ç±³");
-/*//Presicions for strings
+//Presicions for strings
 	printf("\nString options(field width, presicion and justification):\n");fflush(stdout);
 	const char A[] = "this is tEEEEst!";
 	printf("\tOrigin: |%5.3s|\t\t|%3.5s|\t|%7s|\t|%7.3s|\n",A, A,A,NULL);fflush(stdout);
@@ -638,7 +638,7 @@ int	main(void)
 //LEAKS test (just make <gcc -D LEAKS> and it will work)
 #ifdef LEAKS
 	while (1) sleep(120);
-#endif*/
+#endif
 /*
 **	Put new stuff here
 */

@@ -6,7 +6,7 @@
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 11:59:51 by opodolia          #+#    #+#             */
-/*   Updated: 2017/03/06 11:59:52 by opodolia         ###   ########.fr       */
+/*   Updated: 2017/03/06 15:29:30 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ int			ft_length(const char *format, t_mods *mods)
 		mods->length = j;
 	else if (format[i] == 'z')
 		mods->length = z;
+	else if (format[i] == 'L')
+		mods->length = L;
 	else
 		return (0);
 	return (1);

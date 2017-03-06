@@ -6,7 +6,7 @@
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 12:02:06 by opodolia          #+#    #+#             */
-/*   Updated: 2017/03/06 12:03:08 by opodolia         ###   ########.fr       */
+/*   Updated: 2017/03/06 19:53:26 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static int	ft_parse_mods(int i, const char *format, t_mods *mods, va_list ap)
 		else if (format[i] == '.')
 			i += ft_precision(&format[i], mods, ap);
 		else if (format[i] == 'h' || format[i] == 'l' || format[i] == 'j'
-				|| format[i] == 'z')
+				|| format[i] == 'z' || format[i] == 'L')
 			i += ft_length(&format[i], mods);
 		else if (format[i])
 		{
@@ -62,6 +62,8 @@ static int	ft_parse_convs(va_list ap, t_mods *mods)
 		return (ft_char(ap, mods));
 	else if (c == 's')
 		return (ft_str(ap, mods));
+	else if (c == 'f' || c == 'e' || c == 'g' || c == 'a')
+		return (ft_float(ap, mods));
 	else if (mods->qualifier)
 		return (ft_no_qual(mods));
 	return (0);
@@ -108,5 +110,6 @@ int			ft_printf(const char *format, ...)
 	ret = 0;
 	if ((ret = ft_in_print(format, ret, &mods, ap)) < 0)
 		return (-1);
+	va_end(ap);
 	return (ret);
 }

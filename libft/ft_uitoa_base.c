@@ -6,13 +6,13 @@
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/04 16:43:00 by opodolia          #+#    #+#             */
-/*   Updated: 2017/03/04 16:43:01 by opodolia         ###   ########.fr       */
+/*   Updated: 2017/03/06 18:29:57 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	int		ft_size(uintmax_t val, int base)
+static int	ft_size(uintmax_t val, int base)
 {
 	int		size;
 
@@ -27,7 +27,7 @@ static	int		ft_size(uintmax_t val, int base)
 	return (size);
 }
 
-char			*ft_uitoa_base(uintmax_t val, int base)
+char		*ft_uitoa_base(uintmax_t val, int base)
 {
 	char	*str;
 	char	*bs;
