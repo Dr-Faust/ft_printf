@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_qualifier.c                                     :+:      :+:    :+:   */
+/*   ft_get_mantissa.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/06 12:04:02 by opodolia          #+#    #+#             */
-/*   Updated: 2017/03/08 17:33:15 by opodolia         ###   ########.fr       */
+/*   Created: 2017/03/08 23:06:34 by opodolia          #+#    #+#             */
+/*   Updated: 2017/03/08 23:20:43 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_qualifier(char c, t_mods *mods)
+long double	ft_get_mantissa(long double n, int base)
 {
-	if (c == 'D' || c == 'C' || c == 'O' || c == 'U' || c == 'S')
+	long double	u;
+	uintmax_t	d;
+
+	u = 1;
+	while (u < n / ft_ld_intpower(base, 8))
+		u *= ft_ld_intpower(base, 8);
+	while (n >= 1)
 	{
-		mods->length = l;
-		c += 32;
+		d = (uintmax_t)(n / u);
+		n -= d * u;
+		u /= ft_ld_intpower(base, 8);
 	}
-	if (c == 'p')
-	{
-		mods->length = l;
-		mods->flags.hash = yes;
-	}
-	mods->qualifier = c;
-	return (1);
+	return (n);
 }

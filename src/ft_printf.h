@@ -6,7 +6,7 @@
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 12:03:22 by opodolia          #+#    #+#             */
-/*   Updated: 2017/03/06 19:53:29 by opodolia         ###   ########.fr       */
+/*   Updated: 2017/03/09 03:19:16 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <stdint.h>
 # include <wchar.h>
 # include "../libft/libft.h"
+# define MAX(a, b) (a > b ? a : b)
 
 typedef enum
 {
@@ -39,7 +40,6 @@ typedef enum
 	o,
 	x,
 	X,
-	dot
 }	t_hash;
 
 typedef struct	s_flags
@@ -58,6 +58,11 @@ typedef struct	s_mods
 	int			precision;
 	t_length	length;
 	char		qualifier;
+	int			base;
+	int			sigfig;
+	int			exp_base;
+	char		exp_char;
+	int			exp_len;
 }				t_mods;
 
 int				ft_printf(const char *format, ...);
@@ -79,5 +84,8 @@ char			*ft_convert_len(va_list ap, t_mods *mods, char c);
 char			*ft_convert_ulen(va_list ap, t_mods *mods, char c);
 void			ft_push_right(t_mods *mods, char **mas, int size, char *str);
 void			ft_push_left(t_mods *mods, char **mas, int size, char *str);
+char			*ft_ftoa_handler(long double n, t_mods *mods, char c);
+long double		ft_get_mantissa(long double n, int base);
+char			*ft_end_zeroes(char *s, char c, char r);
 
 #endif

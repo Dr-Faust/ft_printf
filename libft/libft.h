@@ -6,7 +6,7 @@
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 15:10:35 by opodolia          #+#    #+#             */
-/*   Updated: 2017/02/22 17:07:54 by opodolia         ###   ########.fr       */
+/*   Updated: 2017/03/08 22:59:59 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,10 +89,12 @@ void				ft_quicksort(int *arr, int first, int last);
 void				ft_swap(int *a, int *b);
 int					ft_lstsize(t_list *lst);
 int					ft_sqrt(int nb);
-char				*ft_uitoa_base(uintmax_t val, int base);
+char				*ft_uitoa_base(uintmax_t val, int base, char c);
 int					ft_wclen(const wchar_t c);
 int					ft_wcslen(const wchar_t *s);
 int					ft_wctomb(char *s, wchar_t wchar);
 size_t				ft_wcstombs(char *s, const wchar_t *old_ws, size_t len);
+long double			ft_ld_intpower(long double nb, long double power);
+char				*ft_strjoin_free(char *s1, char *s2);
 
 #endif

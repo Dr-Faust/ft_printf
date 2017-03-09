@@ -6,7 +6,7 @@
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/04 16:43:00 by opodolia          #+#    #+#             */
-/*   Updated: 2017/03/06 18:29:57 by opodolia         ###   ########.fr       */
+/*   Updated: 2017/03/08 21:27:54 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ static int	ft_size(uintmax_t val, int base)
 	return (size);
 }
 
-char		*ft_uitoa_base(uintmax_t val, int base)
+char		*ft_uitoa_base(uintmax_t val, int base, char c)
 {
 	char	*str;
 	char	*bs;
 	int		size;
 
-	bs = "0123456789ABCDEF";
+	bs = (c <= 'Z') ? "0123456789ABCDEF" : "0123456789abcdef";
 	size = ft_size(val, base);
 	str = (char *)malloc(sizeof(char) * (size + 1));
 	str[size] = '\0';

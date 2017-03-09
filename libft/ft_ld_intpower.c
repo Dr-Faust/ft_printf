@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_qualifier.c                                     :+:      :+:    :+:   */
+/*   ft_ld_intpower.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/06 12:04:02 by opodolia          #+#    #+#             */
-/*   Updated: 2017/03/08 17:33:15 by opodolia         ###   ########.fr       */
+/*   Created: 2017/03/08 17:14:49 by opodolia          #+#    #+#             */
+/*   Updated: 2017/03/08 23:27:49 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int		ft_qualifier(char c, t_mods *mods)
+long double	ft_ld_intpower(long double nb, long double power)
 {
-	if (c == 'D' || c == 'C' || c == 'O' || c == 'U' || c == 'S')
-	{
-		mods->length = l;
-		c += 32;
-	}
-	if (c == 'p')
-	{
-		mods->length = l;
-		mods->flags.hash = yes;
-	}
-	mods->qualifier = c;
-	return (1);
+	long double i;
+	long double num;
+
+	num = nb;
+	if (power < 0)
+		return (0);
+	else if (power == 0)
+		return (1);
+	i = 1;
+	while (i++ < power)
+		num *= nb;
+	return (num);
 }

@@ -6,7 +6,7 @@
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 11:58:45 by opodolia          #+#    #+#             */
-/*   Updated: 2017/03/06 19:53:32 by opodolia         ###   ########.fr       */
+/*   Updated: 2017/03/09 04:04:01 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,6 @@ static void	ft_parse_nmods(t_mods *mods, char c, intmax_t n)
 	{
 		mods->flags.plus = 0;
 		mods->flags.space = 0;
-	}
-	if (c == 'f' || c == 'e' || c == 'g' || c == 'a')
-	{
-		if (mods->flags.hash == yes)
-			mods->flags.hash == dot;
 	}
 	if (n == 0 && (c == 'x' || c == 'X'))
 		mods->flags.hash = 0;
@@ -45,19 +40,11 @@ static char	*ft_itoa_qual(intmax_t n, t_mods *mods, int flag)
 
 	c = mods->qualifier;
 	if (c == 'u' || c == 'd' || c == 'i')
-		str = flag ? ft_uitoa_base(n, 10) : ft_itoa(n);
+		str = flag ? ft_uitoa_base(n, 10, c) : ft_itoa(n);
 	else if (c == 'o')
-		str = ft_uitoa_base(n, 8);
+		str = ft_uitoa_base(n, 8, c);
 	else if (c == 'x' || c == 'X' || c == 'p')
-	{
-		i = -1;
-		str = ft_uitoa_base(n, 16);
-		while ((c == 'x' || c == 'p') && str[++i])
-		{
-			if (str[i] >= 'A' && str[i] <= 'Z')
-				str[i] += 32;
-		}
-	}
+		str = ft_uitoa_base(n, 16, c);
 	else
 		return (NULL);
 	if (n == 0 && mods->precision == 0)
@@ -103,9 +90,6 @@ static char	*ft_parse_neg(intmax_t n, t_mods *mods)
 	else if (mods->length == z)
 		str = (n < 0) ? ft_itoa_qual((size_t)-n, mods, 1) :
 			ft_itoa_qual((size_t)n, mods, 1);
-	else if (mods->length == L)
-		str = (n < 0) ? ft_itoa_qual((long double)-n, mods, 1) :
-			ft_itoa_qual((long double)n, mods, 1);
 	if (n < 0)
 		return (ft_strjoin("-", str));
 	return (str);
@@ -122,7 +106,7 @@ char		*ft_convert_len(va_list ap, t_mods *mods, char c)
 	else if (mods->length == h)
 		return (ft_itoa_qual((short)n, mods, 0));
 	else if (mods->length == l || mods->length == ll || mods->length == j
-			|| mods->length == z || mods->length == L)
+			|| mods->length == z)
 		return (ft_parse_neg(n, mods));
 	return (ft_itoa_qual((int)n, mods, 0));
 }

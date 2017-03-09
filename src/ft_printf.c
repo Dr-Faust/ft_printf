@@ -6,7 +6,7 @@
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 12:02:06 by opodolia          #+#    #+#             */
-/*   Updated: 2017/03/06 19:53:26 by opodolia         ###   ########.fr       */
+/*   Updated: 2017/03/09 03:13:18 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,11 @@ static void	ft_set_mods(t_mods *mods)
 	mods->precision = -1;
 	mods->length = none;
 	mods->qualifier = '\0';
+	mods->base = 10;
+	mods->sigfig = -1;
+	mods->exp_base = 10;
+	mods->exp_char = 0;
+	mods->exp_len = 2;
 }
 
 static int	ft_parse_mods(int i, const char *format, t_mods *mods, va_list ap)
@@ -62,7 +67,8 @@ static int	ft_parse_convs(va_list ap, t_mods *mods)
 		return (ft_char(ap, mods));
 	else if (c == 's')
 		return (ft_str(ap, mods));
-	else if (c == 'f' || c == 'e' || c == 'g' || c == 'a')
+	else if (c == 'f' || c == 'F' || c == 'e' || c == 'E' || c == 'g'
+			|| c == 'G' || c == 'a' || c == 'A')
 		return (ft_float(ap, mods));
 	else if (mods->qualifier)
 		return (ft_no_qual(mods));

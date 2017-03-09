@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_qualifier.c                                     :+:      :+:    :+:   */
+/*   ft_strjoin_free.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/06 12:04:02 by opodolia          #+#    #+#             */
-/*   Updated: 2017/03/08 17:33:15 by opodolia         ###   ########.fr       */
+/*   Created: 2017/03/08 20:04:00 by opodolia          #+#    #+#             */
+/*   Updated: 2017/03/08 22:59:42 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int		ft_qualifier(char c, t_mods *mods)
+char	*ft_strjoin_free(char *s1, char *s2)
 {
-	if (c == 'D' || c == 'C' || c == 'O' || c == 'U' || c == 'S')
-	{
-		mods->length = l;
-		c += 32;
-	}
-	if (c == 'p')
-	{
-		mods->length = l;
-		mods->flags.hash = yes;
-	}
-	mods->qualifier = c;
-	return (1);
+	char *str;
+
+	if (s1 && s2)
+		if ((str = ft_strnew(ft_strlen(s1) + ft_strlen(s2))))
+		{
+			ft_strcat(str, s1);
+			ft_strcat(&str[ft_strlen(s1)], s2);
+			free(s1);
+			free(s2);
+			return (str);
+		}
+	return (0);
 }
