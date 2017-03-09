@@ -6,7 +6,7 @@
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 12:03:51 by opodolia          #+#    #+#             */
-/*   Updated: 2017/03/09 04:38:25 by opodolia         ###   ########.fr       */
+/*   Updated: 2017/03/09 04:51:23 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ static int	ft_put_sign(t_mods *mods, char **mas, int i, char *str)
 			(*mas)[i++] = 'x';
 		if (mods->flags.hash == X)
 			(*mas)[i++] = 'X';
-		printf("mas = %s\n", *mas);
 	}
 	else if (mods->flags.plus)
 		(*mas)[i++] = '+';

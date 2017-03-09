@@ -6,7 +6,7 @@
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 16:10:28 by opodolia          #+#    #+#             */
-/*   Updated: 2017/03/09 04:18:33 by opodolia         ###   ########.fr       */
+/*   Updated: 2017/03/09 04:52:51 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,6 @@ static void	ft_parse_fmods(t_mods *mods, char c, long double n)
 		mods->exp_len = 1;
 		mods->exp_char = c + 15;
 	}
-	if (c == 'a')
-		mods->flags.hash = x;
-	if (c == 'A')
-		mods->flags.hash = X;
 }
 
 char		*ft_end_zeroes(char *str, char c, char r)
@@ -104,6 +100,10 @@ int			ft_float(va_list ap, t_mods *mods)
 	if (c == 'f' || c == 'F' || c == 'e' || c == 'E' || c == 'g' || c == 'G'
 			|| c == 'a' || c == 'A')
 		str = ft_convert_flen(ap, mods, c);
+	if (c == 'a')
+		write(1, "0x", 2);
+	else if (c == 'A')
+		write(1, "0X", 2);
 	size = ft_size(str, mods);
 	mas = (char *)malloc(sizeof(char) * (size + 1));
 	mods->flags.left ? ft_push_left(mods, &mas, size, str) :
