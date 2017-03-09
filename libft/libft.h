@@ -6,7 +6,7 @@
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 15:10:35 by opodolia          #+#    #+#             */
-/*   Updated: 2017/03/08 22:59:59 by opodolia         ###   ########.fr       */
+/*   Updated: 2017/03/09 06:28:05 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <string.h>
 # include <stdint.h>
 # include <wchar.h>
-
+# define MAX(a, b) (a > b ? a : b)
 typedef struct		s_list
 {
 	void			*content;
@@ -96,5 +96,7 @@ int					ft_wctomb(char *s, wchar_t wchar);
 size_t				ft_wcstombs(char *s, const wchar_t *old_ws, size_t len);
 long double			ft_ld_intpower(long double nb, long double power);
 char				*ft_strjoin_free(char *s1, char *s2);
+char				*ft_ftoa_base(uintmax_t val, int base, char c, int digits);
+void				ft_strrev(char *s);
 
 #endif

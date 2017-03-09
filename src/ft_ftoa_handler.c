@@ -6,7 +6,7 @@
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/08 18:08:35 by opodolia          #+#    #+#             */
-/*   Updated: 2017/03/09 03:40:08 by opodolia         ###   ########.fr       */
+/*   Updated: 2017/03/09 06:33:53 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ static char			*ft_ld_ftoa(long double n, t_mods *mods, int base, char c)
 	while (sigfig && (u >= 1 || !ft_strlen(str)))
 	{
 		d = (uintmax_t)(n / u);
-		str = ft_strjoin_free(str, ft_uitoa_base(d, base, c));
+		str = ft_strjoin_free(str, ft_ftoa_base(d, base, c, 1));
 		if (!(*str == '0' && ft_strlen(str) == 1))
 			sigfig--;
 		n -= d * u;
@@ -117,7 +117,7 @@ char				*ft_ftoa_handler(long double n, t_mods *mods, char c)
 				mods->exp_char, 1)));
 		str = ft_strjoin_free(str, (n >= 1 || n == 0) ? ft_strdup("+")
 				: ft_strdup("-"));
-		str = ft_strjoin_free(str, ft_uitoa_base(i, 10, c));
+		str = ft_strjoin_free(str, ft_ftoa_base(i, 10, c, mods->exp_len));
 	}
 	return (str);
 }

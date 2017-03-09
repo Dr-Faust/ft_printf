@@ -6,7 +6,7 @@
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 12:03:22 by opodolia          #+#    #+#             */
-/*   Updated: 2017/03/09 03:19:16 by opodolia         ###   ########.fr       */
+/*   Updated: 2017/03/09 05:48:44 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # include <stdint.h>
 # include <wchar.h>
 # include "../libft/libft.h"
-# define MAX(a, b) (a > b ? a : b)
 
 typedef enum
 {
