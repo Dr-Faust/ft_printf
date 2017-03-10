@@ -5,7 +5,7 @@
 
 int main()
 {
-	const double RENT = -3453;
+	const double RENT = 3453;
 /*	printf("Origin :\n# = %#o, no = %o\n", 3453, 3453);	
 	ft_printf("Ft :\n# = %#o, no = %o\n", 3453, 3453);	
 	printf("Origin :\n# = %#O, no = %O\n", 3453, 3453);
