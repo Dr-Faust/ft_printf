@@ -5,7 +5,7 @@
 
 int main()
 {
-	const double RENT = -3453;
+	const double RENT = 3453;
 /*	printf("Origin :\n# = %#o, no = %o\n", 3453, 3453);	
 	ft_printf("Ft :\n# = %#o, no = %o\n", 3453, 3453);	
 	printf("Origin :\n# = %#O, no = %O\n", 3453, 3453);
@@ -20,10 +20,10 @@ int main()
 	ft_printf("Ft 'f':      # = %#.10f, no = %.10f\n", RENT, RENT);	
 	printf("Origin 'F':  # = %#.10F, no = %.10F\n", RENT, RENT);
 	ft_printf("Ft 'F':      # = %#.10F, no = %.10F\n", RENT, RENT);	*/
-	printf("Origin 'g':  # = %#.10g, no = %.10g\n", RENT, RENT);
-	ft_printf("Ft 'g':      # = %#.10g, no = %.10g\n", RENT, RENT);	
-	printf("Origin 'G':  # = %#.10G, no = %.10G\n", RENT, RENT);
-	ft_printf("Ft 'G':      # = %#.10G, no = %.10G\n", RENT, RENT);	
+	printf("Origin 'g':  # = %#+05g, no = %+05g\n", RENT, RENT);
+	ft_printf("Ft 'g':      # = %#+05g, no = %+05g\n", RENT, RENT);	
+	printf("Origin 'G':  # = %#+05G, no = %+05G\n", RENT, RENT);
+	ft_printf("Ft 'G':      # = %#+05G, no = %+05G\n", RENT, RENT);	
 /*	printf("Origin 'e':  # = %#e, no = %e\n",RENT, RENT);
 	ft_printf("Ft 'e':      # = %#e, no = %e\n", RENT, RENT);	
 	printf("Origin 'E':  # = %#E, no = %E\n", RENT, RENT);
