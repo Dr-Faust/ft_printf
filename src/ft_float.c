@@ -6,7 +6,7 @@
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 16:10:28 by opodolia          #+#    #+#             */
-/*   Updated: 2017/03/10 15:51:15 by opodolia         ###   ########.fr       */
+/*   Updated: 2017/03/10 17:38:53 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,19 +32,6 @@ static void	ft_parse_fmods(t_mods *mods, char c, long double n)
 	}
 }
 
-static char	*ft_cut_zeroes(char *str)
-{
-	int		i;
-	char	*s;
-
-	i = 0;
-	while (str[i] != '.')
-		i++;
-	s = (char *)malloc(sizeof(char) * (i + 1));
-	s = ft_strncpy(s, str, i);
-	return (s);
-}
-
 static char *ft_ftoa_qual(long double n, t_mods *mods)
 {
 	char	c;
@@ -58,11 +45,10 @@ static char *ft_ftoa_qual(long double n, t_mods *mods)
 		mods->sigfig = mods->precision;
 		c -= ((n && n < .00001) || ft_ld_intpower(10, mods->precision)
 			   <= n) ? 2 : 1;
+		if (c == 'f' || c == 'F')
+			mods->f_l_a_g = 1;
 		str = ft_ftoa_handler(n, mods, c);
-		str = ft_end_zeroes(ft_end_zeroes(str, '0', 0), '.', 0);
-//		printf("prec = %d\n", mods->precision);
-		if (mods->flags.hash == no)
-			str = ft_cut_zeroes(str);
+	//	str = ft_end_zeroes(ft_end_zeroes(str, '0', 0), '.', 0);
 	}
 	else
 		str = ft_ftoa_handler(n, mods, c);

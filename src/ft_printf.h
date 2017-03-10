@@ -6,7 +6,7 @@
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 12:03:22 by opodolia          #+#    #+#             */
-/*   Updated: 2017/03/10 11:39:22 by opodolia         ###   ########.fr       */
+/*   Updated: 2017/03/10 16:36:41 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ typedef struct	s_mods
 	int			exp_base;
 	char		exp_char;
 	int			exp_len;
+	int			f_l_a_g;
 }				t_mods;
 
 int				ft_printf(const char *format, ...);
@@ -85,5 +86,7 @@ void			ft_push_right(t_mods *mods, char **mas, int size, char *str);
 void			ft_push_left(t_mods *mods, char **mas, int size, char *str);
 char			*ft_ftoa_handler(long double n, t_mods *mods, char c);
 long double		ft_get_mantissa(long double n, int base);
+int				ft_put_sign(t_mods *mods, char **mas, int i, char *str);
+int				ft_put_content(t_mods *mods, char **mas, int i, char *str);
 
 #endif
