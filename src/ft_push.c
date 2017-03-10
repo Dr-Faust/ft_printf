@@ -73,16 +73,16 @@ void		ft_push_right(t_mods *mods, char **mas, int size, char *str)
 	int		len;
 
 	ft_main_part(mods, mas, size, str);
-	if (mods->flags.hash == no && mods->f_l_a_g &&
-			(mods->qualifier == 'g' || mods->qualifier == 'G'))
-		*mas = (ft_cut_zeroes(mas));
-	if (mods->flags.hash == no && (mods->qualifier == 'g'
+//	if (mods->flags.hash == no && mods->f_l_a_g &&
+//			(mods->qualifier == 'g' || mods->qualifier == 'G'))
+//		*mas = (ft_cut_zeroes(mas));
+/*	if (mods->flags.hash == no && (mods->qualifier == 'g'
 				|| mods->qualifier == 'G') && mods->flags.zero == 0)
 	{
 		size_1 = ft_strlen(*mas);
 		while ((*mas)[--size_1] == '0')
 			(*mas)[size_1] = 0;
-	}
+	}*/
 }
 
 void		ft_push_left(t_mods *mods, char **mas, int size, char *str)

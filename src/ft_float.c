@@ -48,7 +48,7 @@ static char *ft_ftoa_qual(long double n, t_mods *mods)
 		if ((c == 'f' || c == 'F') && n == (long long)n)
 			mods->f_l_a_g = 1;
 		str = ft_ftoa_handler(n, mods, c);
-	//	str = ft_end_zeroes(ft_end_zeroes(str, '0', 0), '.', 0);
+		str = ft_end_zeroes(ft_end_zeroes(str, '0', 0), '.', 0);
 	}
 	else
 		str = ft_ftoa_handler(n, mods, c);
