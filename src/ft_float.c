@@ -6,7 +6,7 @@
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 16:10:28 by opodolia          #+#    #+#             */
-/*   Updated: 2017/03/09 05:10:51 by opodolia         ###   ########.fr       */
+/*   Updated: 2017/03/10 10:57:11 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,9 @@ static char	*ft_convert_flen(va_list ap, t_mods *mods, char c)
 	else
 		n = va_arg(ap, double);
 	ft_parse_fmods(mods, c, n);
-	return (str = (n < 0) ? ft_ftoa_qual(-n, mods) : ft_ftoa_qual(n, mods));
+	str = (n < 0) ? ft_ftoa_qual(-n, mods) : ft_ftoa_qual(n, mods);
+	str = ft_strjoin_free(ft_strdup("-"), str);
+	return (str);
 }
 
 int			ft_float(va_list ap, t_mods *mods)
