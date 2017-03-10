@@ -6,7 +6,7 @@
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 16:10:28 by opodolia          #+#    #+#             */
-/*   Updated: 2017/03/10 17:38:53 by opodolia         ###   ########.fr       */
+/*   Updated: 2017/03/10 18:18:34 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static char *ft_ftoa_qual(long double n, t_mods *mods)
 		mods->sigfig = mods->precision;
 		c -= ((n && n < .00001) || ft_ld_intpower(10, mods->precision)
 			   <= n) ? 2 : 1;
-		if (c == 'f' || c == 'F')
+		if ((c == 'f' || c == 'F') && n == (long long)n)
 			mods->f_l_a_g = 1;
 		str = ft_ftoa_handler(n, mods, c);
 	//	str = ft_end_zeroes(ft_end_zeroes(str, '0', 0), '.', 0);
