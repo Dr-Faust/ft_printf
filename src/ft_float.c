@@ -6,7 +6,7 @@
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 16:10:28 by opodolia          #+#    #+#             */
-/*   Updated: 2017/03/10 11:12:52 by opodolia         ###   ########.fr       */
+/*   Updated: 2017/03/10 15:51:15 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,24 +32,16 @@ static void	ft_parse_fmods(t_mods *mods, char c, long double n)
 	}
 }
 
-char		*ft_end_zeroes(char *str, char c, char r)
+static char	*ft_cut_zeroes(char *str)
 {
+	int		i;
 	char	*s;
-	char	a;
 
-	s = str;
-	if (str && *str)
-	{
-		a = *str;
-		*str = 0;
-		str++;
-		while (*str)
-			str++;
-		if (s - str)
-			while (*(--str) == c)
-				*str = r;
-		*s = a;
-	}
+	i = 0;
+	while (str[i] != '.')
+		i++;
+	s = (char *)malloc(sizeof(char) * (i + 1));
+	s = ft_strncpy(s, str, i);
 	return (s);
 }
 
@@ -65,9 +57,12 @@ static char *ft_ftoa_qual(long double n, t_mods *mods)
 			mods->precision = 1;
 		mods->sigfig = mods->precision;
 		c -= ((n && n < .00001) || ft_ld_intpower(10, mods->precision)
-			   <= n) ? 2 : 1; 	
+			   <= n) ? 2 : 1;
 		str = ft_ftoa_handler(n, mods, c);
 		str = ft_end_zeroes(ft_end_zeroes(str, '0', 0), '.', 0);
+//		printf("prec = %d\n", mods->precision);
+		if (mods->flags.hash == no)
+			str = ft_cut_zeroes(str);
 	}
 	else
 		str = ft_ftoa_handler(n, mods, c);
@@ -106,6 +101,8 @@ int			ft_float(va_list ap, t_mods *mods)
 	if (c == 'f' || c == 'F' || c == 'e' || c == 'E' || c == 'g' || c == 'G'
 			|| c == 'a' || c == 'A')
 		str = ft_convert_flen(ap, mods, c);
+	if (c == 'g' || c == 'G')
+		mods->precision = -1;
 	size = ft_size(str, mods);
 	mas = (char *)malloc(sizeof(char) * (size + 1));
 	mods->flags.left ? ft_push_left(mods, &mas, size, str) :

@@ -6,7 +6,7 @@
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 12:03:22 by opodolia          #+#    #+#             */
-/*   Updated: 2017/03/09 05:48:44 by opodolia         ###   ########.fr       */
+/*   Updated: 2017/03/10 11:39:22 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,5 @@ void			ft_push_right(t_mods *mods, char **mas, int size, char *str);
 void			ft_push_left(t_mods *mods, char **mas, int size, char *str);
 char			*ft_ftoa_handler(long double n, t_mods *mods, char c);
 long double		ft_get_mantissa(long double n, int base);
-char			*ft_end_zeroes(char *s, char c, char r);
 
 #endif

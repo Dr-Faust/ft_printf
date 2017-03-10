@@ -1,27 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_end_zero.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/01 14:26:56 by opodolia          #+#    #+#             */
-/*   Updated: 2017/03/10 14:03:50 by opodolia         ###   ########.fr       */
+/*   Created: 2017/03/10 11:36:59 by opodolia          #+#    #+#             */
+/*   Updated: 2017/03/10 11:38:26 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncpy(char *dst, const char *src, size_t len)
+char	*ft_end_zeroes(char *str, char c, char r)
 {
-	int		i;
+	char	*s;
+	char	a;
 
-	i = 0;
-	while (i <= len)
+	s = str;
+	if (str && *str)
 	{
-		dst[i] = src[i];
-		i++;
+		a = *str;
+		*str = 0;
+		str++;
+		while (*str)
+			str++;
+		if (s - str)
+			while (*(--str) == c)
+				*str = r;
+		*s = a;
 	}
-		dst[len] = '\0';
-	return (dst);
+	return (s);
 }

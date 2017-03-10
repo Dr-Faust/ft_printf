@@ -6,7 +6,7 @@
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/08 18:08:35 by opodolia          #+#    #+#             */
-/*   Updated: 2017/03/09 06:33:53 by opodolia         ###   ########.fr       */
+/*   Updated: 2017/03/10 15:51:17 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ static char			*ft_ld_ftoa(long double n, t_mods *mods, int base, char c)
 	int			sigfig;
 	int			precision;
 
+//	printf("n = %Lf\n", n);
 	sigfig = mods->sigfig;
 	precision = mods->precision;
 	ft_init(&u, n, base, &str);
@@ -89,6 +90,7 @@ static char			*ft_ld_ftoa(long double n, t_mods *mods, int base, char c)
 		precision = (sigfig > 0) ? sigfig : precision;
 		str = ft_strjoin_free(str, ft_strdup("."));
 		str = ft_strjoin_free(str, ft_mantissa(n, precision, base, c));
+//		printf("str = %s\n", str);
 	}
 	return (str);
 }
@@ -99,6 +101,8 @@ char				*ft_ftoa_handler(long double n, t_mods *mods, char c)
 	long double ld;
 	int			i;
 
+//	printf("c = %c\n", c);
+//	printf("prec = %d\n", mods->precision);
 	if (c == 'f' || c == 'F')
 		str = ft_ld_ftoa(ft_round(n, mods->precision, 10), mods, 10, c);
 	else
