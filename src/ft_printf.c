@@ -62,7 +62,7 @@ static int	ft_parse_convs(va_list ap, t_mods *mods, const char *format)
 	char	c;
 	int		i;
 
-	i = 0;
+	i = 1;
 	c = mods->qualifier;
 	if (c == 'd' || c == 'i' || c == 'o' || c == 'u' || c == 'x'
 			|| c == 'X' || c == 'p')
