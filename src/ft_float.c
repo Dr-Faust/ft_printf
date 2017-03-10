@@ -6,7 +6,7 @@
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 16:10:28 by opodolia          #+#    #+#             */
-/*   Updated: 2017/03/10 11:01:21 by opodolia         ###   ########.fr       */
+/*   Updated: 2017/03/10 11:12:52 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,10 @@ static char	*ft_convert_flen(va_list ap, t_mods *mods, char c)
 		n = va_arg(ap, double);
 	ft_parse_fmods(mods, c, n);
 	str = (n < 0) ? ft_ftoa_qual(-n, mods) : ft_ftoa_qual(n, mods);
+	if (c == 'a')
+		str = ft_strjoin_free(ft_strdup("0x"), str);
+	if (c == 'A')
+		str = ft_strjoin_free(ft_strdup("0X"), str);
 	str = (n < 0) ? ft_strjoin_free(ft_strdup("-"), str) : str;
 	return (str);
 }
@@ -102,10 +106,6 @@ int			ft_float(va_list ap, t_mods *mods)
 	if (c == 'f' || c == 'F' || c == 'e' || c == 'E' || c == 'g' || c == 'G'
 			|| c == 'a' || c == 'A')
 		str = ft_convert_flen(ap, mods, c);
-	if (c == 'a')
-		write(1, "0x", 2);
-	else if (c == 'A')
-		write(1, "0X", 2);
 	size = ft_size(str, mods);
 	mas = (char *)malloc(sizeof(char) * (size + 1));
 	mods->flags.left ? ft_push_left(mods, &mas, size, str) :
