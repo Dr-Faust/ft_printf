@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
 static void	ft_set_mods(t_mods *mods)
 {
@@ -56,10 +57,12 @@ static int	ft_parse_mods(int i, const char *format, t_mods *mods, va_list ap)
 	return (i);
 }
 
-static int	ft_parse_convs(va_list ap, t_mods *mods)
+static int	ft_parse_convs(va_list ap, t_mods *mods, const char *format)
 {
 	char	c;
+	int		i;
 
+	i = 0;
 	c = mods->qualifier;
 	if (c == 'd' || c == 'i' || c == 'o' || c == 'u' || c == 'x'
 			|| c == 'X' || c == 'p')
@@ -71,6 +74,13 @@ static int	ft_parse_convs(va_list ap, t_mods *mods)
 	else if (c == 'f' || c == 'F' || c == 'e' || c == 'E' || c == 'g'
 			|| c == 'G' || c == 'a' || c == 'A')
 		return (ft_float(ap, mods));
+	else if (c == 'n')
+	{
+		while (format[i])
+			i++;
+		*va_arg(ap, int*) = i;
+		return(i);
+	}
 	else if (mods->qualifier)
 		return (ft_no_qual(mods));
 	return (0);
@@ -91,7 +101,7 @@ static int	ft_in_print(const char *format, int ret, t_mods *mods, va_list ap)
 			ret += tmp - &format[i];
 			ft_set_mods(mods);
 			i = ft_parse_mods(i + tmp - &format[i] + 1, format, mods, ap);
-			if ((j = ft_parse_convs(ap, mods)) < 0)
+			if ((j = ft_parse_convs(ap, mods, format)) < 0)
 				return (-1);
 			ret += j;
 		}

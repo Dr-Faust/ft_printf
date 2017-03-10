@@ -38,7 +38,8 @@ static char	*ft_cut_zeroes(char **str)
 	s = ft_strncpy(s, tmp, i);
 	return (s);
 }
-static void ft_main_part(t_mods *mods, char **mas, int size, char *str)
+
+void		ft_push_right(t_mods *mods, char **mas, int size, char *str)
 {
 	int		i;
 	int		val;
@@ -66,23 +67,6 @@ static void ft_main_part(t_mods *mods, char **mas, int size, char *str)
 	}
 	i = ft_put_content(mods, mas, i, str);
 	(*mas)[i] = '\0';
-}
-void		ft_push_right(t_mods *mods, char **mas, int size, char *str)
-{
-	int		size_1;
-	int		len;
-
-	ft_main_part(mods, mas, size, str);
-//	if (mods->flags.hash == no && mods->f_l_a_g &&
-//			(mods->qualifier == 'g' || mods->qualifier == 'G'))
-//		*mas = (ft_cut_zeroes(mas));
-/*	if (mods->flags.hash == no && (mods->qualifier == 'g'
-				|| mods->qualifier == 'G') && mods->flags.zero == 0)
-	{
-		size_1 = ft_strlen(*mas);
-		while ((*mas)[--size_1] == '0')
-			(*mas)[size_1] = 0;
-	}*/
 }
 
 void		ft_push_left(t_mods *mods, char **mas, int size, char *str)
