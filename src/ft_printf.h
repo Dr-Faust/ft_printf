@@ -39,6 +39,7 @@ typedef enum
 	o,
 	x,
 	X,
+	b,
 }	t_hash;
 
 typedef struct	s_flags

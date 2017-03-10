@@ -17,13 +17,16 @@ int		ft_put_sign(t_mods *mods, char **mas, int i, char *str)
 	if (str[0] == '-')
 		(*mas)[i++] = '-';
 	else if ((mods->flags.hash == o && str[0] != '0')
-			|| mods->flags.hash == x || mods->flags.hash == X)
+			|| mods->flags.hash == x || mods->flags.hash == X
+			|| mods->flags.hash == b)
 	{
 		(*mas)[i++] = '0';
 		if (mods->flags.hash == x)
 			(*mas)[i++] = 'x';
 		if (mods->flags.hash == X)
 			(*mas)[i++] = 'X';
+		if (mods->flags.hash == b)
+			(*mas)[i++] = 'b';
 	}
 	else if (mods->flags.plus)
 		(*mas)[i++] = '+';

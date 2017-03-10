@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
 static void	ft_set_mods(t_mods *mods)
 {
@@ -65,7 +64,7 @@ static int	ft_parse_convs(va_list ap, t_mods *mods, int ret)
 	i = 1;
 	c = mods->qualifier;
 	if (c == 'd' || c == 'i' || c == 'o' || c == 'u' || c == 'x'
-			|| c == 'X' || c == 'p')
+			|| c == 'X' || c == 'p' || c == 'b')
 		return (ft_numb(ap, mods));
 	else if (c == 'c')
 		return (ft_char(ap, mods));

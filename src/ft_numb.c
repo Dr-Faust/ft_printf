@@ -21,7 +21,8 @@ int		ft_numb(va_list ap, t_mods *mods)
 	char	*mas;
 
 	c = mods->qualifier;
-	if (c == 'u' || c == 'x' || c == 'o' || c == 'X' || c == 'p')
+	if (c == 'u' || c == 'x' || c == 'o' || c == 'X' || c == 'p'
+			|| c == 'b')
 		str = ft_convert_ulen(ap, mods, c);
 	else
 		str = ft_convert_len(ap, mods, c);

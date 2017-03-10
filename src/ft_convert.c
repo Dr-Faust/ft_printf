@@ -14,7 +14,8 @@
 
 static void	ft_parse_nmods(t_mods *mods, char c, intmax_t n)
 {
-	if (c == 'o' || c == 'u' || c == 'x' || c == 'X' || c == 'p')
+	if (c == 'o' || c == 'u' || c == 'x' || c == 'X' || c == 'p'
+			|| c == 'b')
 	{
 		mods->flags.plus = 0;
 		mods->flags.space = 0;
@@ -29,6 +30,8 @@ static void	ft_parse_nmods(t_mods *mods, char c, intmax_t n)
 			mods->flags.hash = x;
 		if (c == 'X')
 			mods->flags.hash = X;
+		if (c == 'b')
+			mods->flags.hash = b;
 	}
 }
 
@@ -45,6 +48,8 @@ static char	*ft_itoa_qual(intmax_t n, t_mods *mods, int flag)
 		str = ft_uitoa_base(n, 8, c);
 	else if (c == 'x' || c == 'X' || c == 'p')
 		str = ft_uitoa_base(n, 16, c);
+	else if ( c == 'b')
+		str = ft_uitoa_base(n, 2, c);
 	else
 		return (NULL);
 	if (n == 0 && mods->precision == 0)
