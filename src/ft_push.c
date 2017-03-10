@@ -6,7 +6,7 @@
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 12:03:51 by opodolia          #+#    #+#             */
-/*   Updated: 2017/03/10 20:26:15 by opodolia         ###   ########.fr       */
+/*   Updated: 2017/03/10 20:29:27 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,13 +76,13 @@ void		ft_push_right(t_mods *mods, char **mas, int size, char *str)
 	if (mods->flags.hash == no && mods->f_l_a_g &&
 			(mods->qualifier == 'g' || mods->qualifier == 'G'))
 		*mas = (ft_cut_zeroes(mas));
-	if (mods->flags.hash == no && (mods->qualifier == 'g'
+/*	if (mods->flags.hash == no && (mods->qualifier == 'g'
 				|| mods->qualifier == 'G') && !mods->flags.zero)
 	{
 		size_1 = ft_strlen(*mas);
 		while ((*mas)[--size_1] == '0')
 			(*mas)[size_1] = 0;
-	}
+	}*/
 }
 
 void		ft_push_left(t_mods *mods, char **mas, int size, char *str)
