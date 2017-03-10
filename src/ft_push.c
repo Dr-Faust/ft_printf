@@ -6,7 +6,7 @@
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 12:03:51 by opodolia          #+#    #+#             */
-/*   Updated: 2017/03/10 18:18:31 by opodolia         ###   ########.fr       */
+/*   Updated: 2017/03/10 19:56:15 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,12 @@ static char	*ft_cut_zeroes(char **str)
 	s = ft_strncpy(s, tmp, i);
 	return (s);
 }
-
-void		ft_push_right(t_mods *mods, char **mas, int size, char *str)
+static void ft_main_part(t_mods *mods, char **mas, int size, char *str)
 {
 	int		i;
 	int		val;
 	int		len;
+	int		j_len;
 
 	if (mods->precision < 0 && mods->flags.zero)
 	{
@@ -66,9 +66,23 @@ void		ft_push_right(t_mods *mods, char **mas, int size, char *str)
 	}
 	i = ft_put_content(mods, mas, i, str);
 	(*mas)[i] = '\0';
+}
+void		ft_push_right(t_mods *mods, char **mas, int size, char *str)
+{
+	int		size_1;
+	int		len;
+
+	ft_main_part(mods, mas, size, str);
 	if (mods->flags.hash == no && mods->f_l_a_g &&
 			(mods->qualifier == 'g' || mods->qualifier == 'G'))
 		*mas = (ft_cut_zeroes(mas));
+	if (mods->flags.hash == no && (mods->qualifier == 'g'
+				|| mods->qualifier == 'G'))
+	{
+		size_1 = ft_strlen(*mas);
+		while ((*mas)[--size_1] == '0')
+			(*mas)[size_1] = 0;
+	}
 }
 
 void		ft_push_left(t_mods *mods, char **mas, int size, char *str)
