@@ -6,7 +6,7 @@
 #    By: opodolia <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/03 13:55:22 by opodolia          #+#    #+#              #
-#    Updated: 2017/03/10 16:18:13 by opodolia         ###   ########.fr        #
+#    Updated: 2017/03/11 15:24:16 by opodolia         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ OBJ1 = libft/ft_atoi.o libft/ft_bzero.o libft/ft_isalnum.o libft/ft_isalpha.o \
 	   libft/ft_toupper.o libft/ft_uitoa_base.o libft/ft_strnlen.o \
 	   libft/ft_wclen.o libft/ft_wcslen.o libft/ft_wcstombs.o \
 	   libft/ft_wctomb.o libft/ft_ld_intpower.o libft/ft_strjoin_free.o \
-	   libft/ft_ftoa_base.o libft/ft_strrev.o libft/ft_end_zeroes.o
+	   libft/ft_ftoa_base.o libft/ft_strrev.o
 
 OBJ2 = src/ft_printf.o src/ft_char.o src/ft_convert.o src/ft_str.o \
 	   src/ft_is_mb.o src/ft_flags.o src/ft_length.o src/ft_numb.o \
@@ -275,9 +275,6 @@ libft/ft_ftoa_base.o : libft/ft_ftoa_base.c
 
 libft/ft_strrev.o : libft/ft_strrev.c
 	$(CC) $(CFLAGS) -c libft/ft_strrev.c -o libft/ft_strrev.o
-
-libft/ft_end_zeroes.o : libft/ft_end_zeroes.c
-	$(CC) $(CFLAGS) -c libft/ft_end_zeroes.c -o libft/ft_end_zeroes.o
 
 src/ft_printf.o : src/ft_printf.c
 	$(CC) $(CFLAGS) -c src/ft_printf.c -o src/ft_printf.o

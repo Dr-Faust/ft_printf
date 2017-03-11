@@ -6,7 +6,7 @@
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 12:02:06 by opodolia          #+#    #+#             */
-/*   Updated: 2017/03/10 16:35:14 by opodolia         ###   ########.fr       */
+/*   Updated: 2017/03/11 15:27:56 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ static void	ft_set_mods(t_mods *mods)
 	mods->exp_base = 10;
 	mods->exp_char = 0;
 	mods->exp_len = 2;
-	mods->f_l_a_g = 0;
 }
 
 static int	ft_parse_mods(int i, const char *format, t_mods *mods, va_list ap)

@@ -6,7 +6,7 @@
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 12:03:22 by opodolia          #+#    #+#             */
-/*   Updated: 2017/03/10 16:36:41 by opodolia         ###   ########.fr       */
+/*   Updated: 2017/03/11 15:28:11 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ typedef struct	s_mods
 	int			exp_base;
 	char		exp_char;
 	int			exp_len;
-	int			f_l_a_g;
 }				t_mods;
 
 int				ft_printf(const char *format, ...);

@@ -6,7 +6,7 @@
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 15:10:35 by opodolia          #+#    #+#             */
-/*   Updated: 2017/03/10 11:39:01 by opodolia         ###   ########.fr       */
+/*   Updated: 2017/03/11 15:18:27 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,5 @@ long double			ft_ld_intpower(long double nb, long double power);
 char				*ft_strjoin_free(char *s1, char *s2);
 char				*ft_ftoa_base(uintmax_t val, int base, char c, int digits);
 void				ft_strrev(char *s);
-char				*ft_end_zeroes(char *str, char c, char r);
 
 #endif
