@@ -73,6 +73,8 @@ static char	*ft_get_unprint_str(va_list ap, t_mods *mods)
 			str = ft_strjoin_free(str, tmp);
 		}
 	}
+	if (!(s[0]) && (!s[1]))
+		str = ft_strdup("\\0");
 	return (str);
 }
 
