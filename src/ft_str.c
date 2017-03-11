@@ -6,7 +6,7 @@
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 12:07:58 by opodolia          #+#    #+#             */
-/*   Updated: 2017/03/06 12:08:01 by opodolia         ###   ########.fr       */
+/*   Updated: 2017/03/11 21:09:54 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,31 @@ static char	*ft_reg_str(t_mods *mods, char *str)
 		return (str);
 }
 
+static char	*ft_get_unprint_str(va_list ap, t_mods *mods)
+{
+	char	*s;
+	char 	*str;
+	char	*tmp;
+	int		i;
+
+	str = (char *)malloc(sizeof(char));
+	if ((s = va_arg(ap, char *)) == NULL)
+		str = ft_strdup("(null)");
+	i = -1;
+	while (s[++i] || (s[i] == '\0' && s[i + 1]))
+	{
+		if (ft_unprint(s, i))
+			str = ft_strjoin_free(str, ft_unprint(s, i));
+		else 
+		{
+			tmp = ft_strnew(1);
+			tmp[0] = s[i];
+			str = ft_strjoin_free(str, tmp);
+		}
+	}
+	return (str);
+}
+
 static char	*ft_get_str(va_list ap, t_mods *mods)
 {
 	wchar_t	*old_wstr;
@@ -85,7 +110,10 @@ int			ft_str(va_list ap, t_mods *mods)
 	char	*str;
 	char	*mas;
 
-	str = ft_get_str(ap, mods);
+	if (mods->flags.unread == 1)
+		str = ft_get_unprint_str(ap, mods);
+	else
+		str = ft_get_str(ap, mods);
 	mods->flags.plus = 0;
 	mods->flags.space = 0;
 	mods->flags.hash = 0;

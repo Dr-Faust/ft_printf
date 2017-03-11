@@ -6,7 +6,7 @@
 #    By: opodolia <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/03 13:55:22 by opodolia          #+#    #+#              #
-#    Updated: 2017/03/11 15:24:16 by opodolia         ###   ########.fr        #
+#    Updated: 2017/03/11 19:41:45 by opodolia         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,8 @@ OBJ2 = src/ft_printf.o src/ft_char.o src/ft_convert.o src/ft_str.o \
 	   src/ft_is_mb.o src/ft_flags.o src/ft_length.o src/ft_numb.o \
 	   src/ft_no_qual.o src/ft_precision.o src/ft_qualifier.o \
 	   src/ft_push.o src/ft_size.o src/ft_width.o src/ft_float.o \
-	   src/ft_ftoa_handler.o src/ft_get_mantissa.o src/ft_put.o
+	   src/ft_ftoa_handler.o src/ft_get_mantissa.o src/ft_put.o \
+	   src/ft_unprint.o
 
 all : $(NAME)
 
@@ -329,3 +330,6 @@ src/ft_get_mantissa.o : src/ft_get_mantissa.c
 
 src/ft_put.o : src/ft_put.c
 	$(CC) $(CFLAGS) -c src/ft_put.c -o src/ft_put.o
+
+src/ft_unprint.o : src/ft_unprint.c
+	$(CC) $(CFLAGS) -c src/ft_unprint.c -o src/ft_unprint.o

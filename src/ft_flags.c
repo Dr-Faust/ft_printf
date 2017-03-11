@@ -6,7 +6,7 @@
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 11:59:04 by opodolia          #+#    #+#             */
-/*   Updated: 2017/03/09 05:10:57 by opodolia         ###   ########.fr       */
+/*   Updated: 2017/03/11 16:24:13 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int		ft_flags(const char *format, t_mods *mods)
 
 	i = 0;
 	while (format[i] == '-' || format[i] == '+' || format[i] == ' '
-		|| format[i] == '#' || format[i] == '0')
+		|| format[i] == '#' || format[i] == '0' || format[i] == 'r')
 	{
 		if (format[i] == '-')
 			mods->flags.left = 1;
@@ -30,6 +30,8 @@ int		ft_flags(const char *format, t_mods *mods)
 			mods->flags.hash = yes;
 		else if (format[i] == '0')
 			mods->flags.zero = 1;
+		else if (format[i] == 'r')
+			mods->flags.unread = 1;
 		i++;
 	}
 	return (i);

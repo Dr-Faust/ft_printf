@@ -6,7 +6,7 @@
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 12:02:06 by opodolia          #+#    #+#             */
-/*   Updated: 2017/03/11 15:27:56 by opodolia         ###   ########.fr       */
+/*   Updated: 2017/03/11 16:24:06 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ static void	ft_set_mods(t_mods *mods)
 	mods->flags.space = 0;
 	mods->flags.hash = no;
 	mods->flags.zero = 0;
+	mods->flags.unread = 0;
 	mods->width = 0;
 	mods->precision = -1;
 	mods->length = none;
@@ -35,7 +36,7 @@ static int	ft_parse_mods(int i, const char *format, t_mods *mods, va_list ap)
 	while (format[i])
 	{
 		if (format[i] == '-' || format[i] == '+' || format[i] == ' '
-				|| format[i] == '#' || format[i] == '0')
+				|| format[i] == '#' || format[i] == '0' || format[i] == 'r')
 			i += ft_flags(&format[i], mods);
 		else if (format[i] == '*' || ft_isdigit(format[i]))
 			i += ft_width(&format[i], mods, ap);

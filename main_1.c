@@ -17,6 +17,10 @@ int main()
 	ft_printf("Ft :\n# = %#X, no = %X\n", 3453, 3453);*/
 
 
+	printf("unprint = %s\n", "\\0, \\a, \\b, \\f, \\n, \\r, \\t, \\v, \\\", \\\\");
+	ft_printf("unprint = %rs\n", "\0, \a, \b, \f, \n, \r, \t, \v, \", \\");
+	printf("unprint = %s\n", "\\0");
+	ft_printf("unprint = %rs\n", "\0");
 	ft_printf("Ft 'b':      # = %#b, no = %b\n", RENT1, RENT1);	
 	printf("Origin 'f':  # = %#.10f, no = %.10f\n", RENT, RENT);
 	ft_printf("Ft 'f':      # = %#.10f, no = %.10f\n", RENT, RENT);	

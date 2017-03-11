@@ -6,7 +6,7 @@
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 12:03:22 by opodolia          #+#    #+#             */
-/*   Updated: 2017/03/11 15:28:11 by opodolia         ###   ########.fr       */
+/*   Updated: 2017/03/11 19:55:40 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ typedef struct	s_flags
 	int			space;
 	t_hash		hash;
 	int			zero;
+	int			unread;
 }				t_flags;
 
 typedef struct	s_mods
@@ -88,5 +89,6 @@ char			*ft_ftoa_handler(long double n, t_mods *mods, char c);
 long double		ft_get_mantissa(long double n, int base);
 int				ft_put_sign(t_mods *mods, char **mas, int i, char *str);
 int				ft_put_content(t_mods *mods, char **mas, int i, char *str);
+char			*ft_unprint(char *s, int i);
 
 #endif
