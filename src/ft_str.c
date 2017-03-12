@@ -6,7 +6,7 @@
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 12:07:58 by opodolia          #+#    #+#             */
-/*   Updated: 2017/03/11 21:09:54 by opodolia         ###   ########.fr       */
+/*   Updated: 2017/03/12 14:58:18 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static char	*ft_reg_str(t_mods *mods, char *str)
 static char	*ft_get_unprint_str(va_list ap, t_mods *mods)
 {
 	char	*s;
-	char 	*str;
+	char	*str;
 	char	*tmp;
 	int		i;
 
@@ -66,7 +66,7 @@ static char	*ft_get_unprint_str(va_list ap, t_mods *mods)
 	{
 		if (ft_unprint(s, i))
 			str = ft_strjoin_free(str, ft_unprint(s, i));
-		else 
+		else
 		{
 			tmp = ft_strnew(1);
 			tmp[0] = s[i];

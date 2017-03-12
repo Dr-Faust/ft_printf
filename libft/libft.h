@@ -6,7 +6,7 @@
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 15:10:35 by opodolia          #+#    #+#             */
-/*   Updated: 2017/03/11 15:18:27 by opodolia         ###   ########.fr       */
+/*   Updated: 2017/03/12 15:01:58 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <stdint.h>
 # include <wchar.h>
 # define MAX(a, b) (a > b ? a : b)
+
 typedef struct		s_list
 {
 	void			*content;

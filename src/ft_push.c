@@ -6,7 +6,7 @@
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 12:03:51 by opodolia          #+#    #+#             */
-/*   Updated: 2017/03/10 20:32:25 by opodolia         ###   ########.fr       */
+/*   Updated: 2017/03/12 15:38:04 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ void		ft_push_right(t_mods *mods, char **mas, int size, char *str)
 	int		i;
 	int		val;
 	int		len;
-	int		j_len;
 
 	if (mods->precision < 0 && mods->flags.zero)
 	{

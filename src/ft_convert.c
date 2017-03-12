@@ -6,7 +6,7 @@
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 11:58:45 by opodolia          #+#    #+#             */
-/*   Updated: 2017/03/09 04:04:01 by opodolia         ###   ########.fr       */
+/*   Updated: 2017/03/12 18:00:27 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ static void	ft_parse_nmods(t_mods *mods, char c, intmax_t n)
 	{
 		mods->flags.plus = 0;
 		mods->flags.space = 0;
+		mods->flags.quote_mark = 0;
 	}
 	if (n == 0 && (c == 'x' || c == 'X'))
 		mods->flags.hash = 0;
@@ -48,12 +49,14 @@ static char	*ft_itoa_qual(intmax_t n, t_mods *mods, int flag)
 		str = ft_uitoa_base(n, 8, c);
 	else if (c == 'x' || c == 'X' || c == 'p')
 		str = ft_uitoa_base(n, 16, c);
-	else if ( c == 'b')
+	else if (c == 'b')
 		str = ft_uitoa_base(n, 2, c);
 	else
 		return (NULL);
 	if (n == 0 && mods->precision == 0)
 		str[0] = '\0';
+	if (mods->flags.quote_mark == 1)
+		str = ft_quote_mark(str);
 	return (str);
 }
 

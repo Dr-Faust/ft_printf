@@ -6,7 +6,7 @@
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 12:03:22 by opodolia          #+#    #+#             */
-/*   Updated: 2017/03/11 19:55:40 by opodolia         ###   ########.fr       */
+/*   Updated: 2017/03/12 16:17:29 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 # include <wchar.h>
 # include "../libft/libft.h"
 
-# define NORMAL  "\x1B[0m"
 # define RED  "\x1B[31m"
 # define GREEN  "\x1B[32m"
 # define YELLOW  "\x1B[33m"
@@ -28,6 +27,7 @@
 # define MAGENTA  "\x1B[35m"
 # define CYAN  "\x1B[36m"
 # define WHITE  "\x1B[37m"
+# define NORMAL  "\x1B[0m"
 
 typedef enum
 {
@@ -59,6 +59,7 @@ typedef struct	s_flags
 	t_hash		hash;
 	int			zero;
 	int			unread;
+	int			quote_mark;
 }				t_flags;
 
 typedef struct	s_mods
@@ -99,5 +100,6 @@ long double		ft_get_mantissa(long double n, int base);
 int				ft_put_sign(t_mods *mods, char **mas, int i, char *str);
 int				ft_put_content(t_mods *mods, char **mas, int i, char *str);
 char			*ft_unprint(char *s, int i);
+char			*ft_quote_mark(char *str);
 
 #endif

@@ -1,27 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_quote_mark.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/01 14:26:56 by opodolia          #+#    #+#             */
-/*   Updated: 2017/03/12 15:00:39 by opodolia         ###   ########.fr       */
+/*   Created: 2017/03/12 16:01:24 by opodolia          #+#    #+#             */
+/*   Updated: 2017/03/12 19:14:10 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-char	*ft_strncpy(char *dst, const char *src, size_t len)
+char	*ft_quote_mark(char *str)
 {
+	char	*s;
 	int		i;
+	int		len;
+	int		new_len;
+	int		count;
 
-	i = 0;
-	while (i <= len)
+	count = 0;
+	len = ft_strlen(str);
+	count = (len % 3 == 0) ? len / 3 - 1 : len / 3;
+	new_len = len + count;
+	s = ft_strnew(new_len);
+	while (new_len >= 0)
 	{
-		dst[i] = src[i];
-		i++;
+		i = 3;
+		while (new_len >= 0 && i--)
+			s[--new_len] = str[--len];
+		s[--new_len] = '\'';
 	}
-	dst[len] = '\0';
-	return (dst);
+	return (s);
 }
