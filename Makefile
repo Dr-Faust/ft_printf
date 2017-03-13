@@ -11,7 +11,11 @@
 # **************************************************************************** #
 
 NAME = libftprintf.a
+
+NAMEBASE = libftprintf
+
 CC = gcc
+
 CFLAGS = #-Wall -Wextra -Werror
 
 OBJECTS = $(OBJ1) $(OBJ2)
@@ -48,18 +52,32 @@ OBJ2 = src/ft_printf.o src/ft_char.o src/ft_convert.o src/ft_str.o \
 	   src/ft_ftoa_handler.o src/ft_get_mantissa.o src/ft_put.o \
 	   src/ft_unprint.o src/ft_quote_mark.o
 
+.SILENT:
+
 all : $(NAME)
+	echo "\033[38;5;44m☑️  ALL    $(NAMEBASE) is done\033[0m\033[K"
 
 $(NAME) : $(OBJECTS)
+	printf "\r\033[38;5;11m⌛  MAKE   $(NAMEBASE) please wait ...\033[0m\033[K"
 	ar rc $(NAME) $(OBJECTS)
+	ranlib $(NAME)
+	echo -en "\r\033[38;5;22m☑️  MAKE   $(NAMEBASE)\033[0m\033[K"
+	echo "\r\033[38;5;184m👥  GROUP MEMBER(S):\033[0m\033[K"
+	echo "\r\033[38;5;15m`cat author | sed s/^/\ \ \ \ /g`\033[0m\033[K"
 
 clean :
+	printf "\r\033[38;5;11m⌛  CLEAN  $(NAMEBASE) please wait ...\033[0m\033[K"
 	rm -f $(OBJECTS)
+	printf "\r\033[38;5;11m☑️  CLEAN  $(NAMEBASE) is done\033[0m\033[K"
 
 fclean : clean
+	printf "\r\033[38;5;11m⌛  FCLEAN $(NAMEBASE) please wait ...\033[0m\033[K"
 	rm -f $(NAME)
+	printf "\r\033[38;5;11m☑️  FCLEAN  $(NAMEBASE) is done\033[0m\033[K"
 
 re : fclean all
+
+.PHONY: fclean clean re
 
 libft/ft_atoi.o : libft/ft_atoi.c
 	$(CC) $(CFLAGS) -c libft/ft_atoi.c -o libft/ft_atoi.o
