@@ -6,7 +6,7 @@
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 12:02:06 by opodolia          #+#    #+#             */
-/*   Updated: 2017/03/12 17:43:26 by opodolia         ###   ########.fr       */
+/*   Updated: 2017/03/13 13:09:26 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,6 @@ static int	ft_parse_convs(va_list ap, t_mods *mods, int ret)
 static int	ft_in_print(const char *format, int ret, t_mods *mods, va_list ap)
 {
 	int		i;
-	int		j;
 	char	*tmp;
 
 	i = 0;

@@ -6,13 +6,13 @@
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 16:10:28 by opodolia          #+#    #+#             */
-/*   Updated: 2017/03/12 14:56:37 by opodolia         ###   ########.fr       */
+/*   Updated: 2017/03/13 13:23:14 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	ft_parse_fmods(t_mods *mods, char c, long double n)
+static void	ft_parse_fmods(t_mods *mods, char c)
 {
 	if (c == 'f' || c == 'F' || c == 'e' || c == 'E' || c == 'g' || c == 'G')
 	{
@@ -87,7 +87,7 @@ static char	*ft_convert_flen(va_list ap, t_mods *mods, char c)
 		n = va_arg(ap, long double);
 	else
 		n = va_arg(ap, double);
-	ft_parse_fmods(mods, c, n);
+	ft_parse_fmods(mods, c);
 	str = (n < 0) ? ft_ftoa_qual(-n, mods) : ft_ftoa_qual(n, mods);
 	if (c == 'a')
 		str = ft_strjoin_free(ft_strdup("0x"), str);
@@ -106,9 +106,7 @@ int			ft_float(va_list ap, t_mods *mods)
 	char	*mas;
 
 	c = mods->qualifier;
-	if (c == 'f' || c == 'F' || c == 'e' || c == 'E' || c == 'g' || c == 'G'
-			|| c == 'a' || c == 'A')
-		str = ft_convert_flen(ap, mods, c);
+	str = ft_convert_flen(ap, mods, c);
 	if (c == 'g' || c == 'G')
 		mods->precision = -1;
 	size = ft_size(str, mods);

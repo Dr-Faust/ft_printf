@@ -6,7 +6,7 @@
 #    By: opodolia <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/03 13:55:22 by opodolia          #+#    #+#              #
-#    Updated: 2017/03/12 16:14:26 by opodolia         ###   ########.fr        #
+#    Updated: 2017/03/13 13:20:20 by opodolia         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ NAMEBASE = libftprintf
 
 CC = gcc
 
-CFLAGS = #-Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
 OBJECTS = $(OBJ1) $(OBJ2)
 
@@ -58,10 +58,10 @@ all : $(NAME)
 	echo "\033[38;5;44m☑️  ALL    $(NAMEBASE) is done\033[0m\033[K"
 
 $(NAME) : $(OBJECTS)
-	printf "\r\033[38;5;11m⌛  MAKE   $(NAMEBASE) please wait ...\033[0m\033[K"
+	printf "\r\033[38;5;11m⌛  MAKE $(NAMEBASE) please wait ...\033[0m\033[K"
 	ar rc $(NAME) $(OBJECTS)
 	ranlib $(NAME)
-	echo -en "\r\033[38;5;22m☑️  MAKE   $(NAMEBASE)\033[0m\033[K"
+	echo -en "\r\033[38;5;22m☑️  MAKE $(NAMEBASE)\033[0m\033[K"
 	echo "\r\033[38;5;184m👥  GROUP MEMBER(S):\033[0m\033[K"
 	echo "\r\033[38;5;15m`cat author | sed s/^/\ \ \ \ /g`\033[0m\033[K"
 

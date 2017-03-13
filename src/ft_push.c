@@ -6,7 +6,7 @@
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 12:03:51 by opodolia          #+#    #+#             */
-/*   Updated: 2017/03/12 15:38:04 by opodolia         ###   ########.fr       */
+/*   Updated: 2017/03/13 13:24:51 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,27 +24,13 @@ static int	ft_reg_i(t_mods *mods, int i, char *str, int len)
 	return (i);
 }
 
-static char	*ft_cut_zeroes(char **str)
-{
-	int		i;
-	char	*s;
-	char	*tmp;
-
-	i = 0;
-	tmp = *str;
-	while (tmp[i] != '.')
-		i++;
-	s = (char *)malloc(sizeof(char) * (i + 1));
-	s = ft_strncpy(s, tmp, i);
-	return (s);
-}
-
 void		ft_push_right(t_mods *mods, char **mas, int size, char *str)
 {
 	int		i;
 	int		val;
 	int		len;
 
+	i = 0;
 	if (mods->precision < 0 && mods->flags.zero)
 	{
 		i = ft_put_sign(mods, mas, i, str);
@@ -56,7 +42,6 @@ void		ft_push_right(t_mods *mods, char **mas, int size, char *str)
 	}
 	else
 	{
-		i = 0;
 		len = ft_strlen(str);
 		val = (len > mods->precision) ? size - len : size - mods->precision;
 		while (i < val)

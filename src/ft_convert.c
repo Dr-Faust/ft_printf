@@ -6,7 +6,7 @@
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 11:58:45 by opodolia          #+#    #+#             */
-/*   Updated: 2017/03/12 18:00:27 by opodolia         ###   ########.fr       */
+/*   Updated: 2017/03/13 13:09:43 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ static void	ft_parse_nmods(t_mods *mods, char c, intmax_t n)
 
 static char	*ft_itoa_qual(intmax_t n, t_mods *mods, int flag)
 {
-	int		i;
 	char	c;
 	char	*str;
 
