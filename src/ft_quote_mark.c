@@ -6,7 +6,7 @@
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/12 16:01:24 by opodolia          #+#    #+#             */
-/*   Updated: 2017/03/12 19:14:10 by opodolia         ###   ########.fr       */
+/*   Updated: 2017/03/14 16:00:41 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,6 @@ char	*ft_quote_mark(char *str)
 			s[--new_len] = str[--len];
 		s[--new_len] = '\'';
 	}
+	free(str);
 	return (s);
 }

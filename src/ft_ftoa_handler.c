@@ -6,7 +6,7 @@
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/08 18:08:35 by opodolia          #+#    #+#             */
-/*   Updated: 2017/03/12 14:57:47 by opodolia         ###   ########.fr       */
+/*   Updated: 2017/03/14 15:36:03 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,8 +112,8 @@ char				*ft_ftoa_handler(long double n, t_mods *mods, char c)
 				ld /= mods->exp_base;
 		str = ft_ld_ftoa(ft_round(n / ld, mods->precision, mods->base),
 				mods, mods->base, c);
-		str = ft_strjoin_free(str, ft_strdup(ft_memset(ft_memalloc(2),
-				mods->exp_char, 1)));
+		str = ft_strjoin_free(str, ft_memset(ft_memalloc(2),
+				mods->exp_char, 1));
 		str = ft_strjoin_free(str, (n >= 1 || n == 0) ? ft_strdup("+")
 				: ft_strdup("-"));
 		str = ft_strjoin_free(str, ft_ftoa_base(i, 10, c, mods->exp_len));

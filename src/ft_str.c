@@ -6,7 +6,7 @@
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 12:07:58 by opodolia          #+#    #+#             */
-/*   Updated: 2017/03/14 15:07:22 by opodolia         ###   ########.fr       */
+/*   Updated: 2017/03/14 16:01:51 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,26 +56,23 @@ static char	*ft_get_unprint_str(va_list ap)
 {
 	char	*s;
 	char	*str;
-	char	*tmp;
 	int		i;
 
-	str = (char *)malloc(sizeof(char));
-	if ((s = va_arg(ap, char *)) == NULL)
-		str = ft_strdup("(null)");
-	i = -1;
-	while (s[++i] || (s[i] == '\0' && s[i + 1]))
+	s = va_arg(ap, char *);
+	if (!(s[0]) && (!s[1]))
+			str = ft_strdup("\\0");
+	else
 	{
-		if (ft_unprint(s, i))
-			str = ft_strjoin_free(str, ft_unprint(s, i));
-		else
+		i = -1;
+		str = (char *)malloc(sizeof(char));
+		while (s[++i] || (s[i] == '\0' && s[i + 1]))
 		{
-			tmp = ft_strnew(1);
-			tmp[0] = s[i];
-			str = ft_strjoin_free(str, tmp);
+			if (ft_unprint(s, i))
+				str = ft_strjoin_free(str, ft_unprint(s, i));
+			else
+				str = ft_strjoin_free(str, ft_memset(ft_memalloc(2), s[i], 1));
 		}
 	}
-	if (!(s[0]) && (!s[1]))
-		str = ft_strdup("\\0");
 	return (str);
 }
 

@@ -30,7 +30,7 @@ int main()
 	printf("Origin :\n# = %#X, no = %X\n", 3453, 3453);
 	ft_printf("Ft :\n# = %#X, no = %X\n", 3453, 3453);*/
 
-	printf("%'d\n", RENT1);
+	ft_printf("%'d\n", RENT1);
 
 	printf("%1$d:%2$.*3$d:%4$.*3$d\n", hour, min, precision, sec);
 
@@ -38,6 +38,9 @@ int main()
 	ft_printf("%sFt	unprint: %rs\n", YELLOW, "\0, \a, \b, \f, \n, \r, \t, \v, \", \\");
 	printf("%sOrigin	unprint: %s\n", BLUE, "\\0");
 	ft_printf("%sFt	unprint: %rs\n", YELLOW, "\0");
+
+	printf("%sOrigin	unprint: %s\n", BLUE, "");
+	ft_printf("%sFt	unprint: %s\n", YELLOW, "");
 
 //	ft_printf("Ft 'b':  # = %#b, no = %b\n", RENT1, RENT1);	
 	printf("%sOrigin	'f':  # = %#.10f, no = %.10f\n", RED, RENT, RENT);
@@ -75,5 +78,6 @@ int main()
 
 	printf ("%zu\n %zu\n", sizeof(int64_t), sizeof(intmax_t)); 
 */
+	while (1) sleep(120);
 	return 0;
 }

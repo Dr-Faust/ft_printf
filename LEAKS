@@ -1,13 +1,13 @@
-Process:         a.out [6166]
+Process:         a.out [7575]
 Path:            /nfs/2016/o/opodolia/projects/GitHub/printf/a.out
-Load Address:    0x1005ec000
+Load Address:    0x1019ba000
 Identifier:      a.out
 Version:         ???
 Code Type:       X86-64
 Parent Process:  zsh [1593]
 
-Date/Time:       2017-03-14 15:29:47.729 +0200
-Launch Time:     2017-03-14 15:29:40.101 +0200
+Date/Time:       2017-03-14 15:37:05.339 +0200
+Launch Time:     2017-03-14 15:36:57.616 +0200
 OS Version:      Mac OS X 10.11.5 (15F34)
 Report Version:  7
 Analysis Tool:   /Applications/Xcode.app/Contents/Developer/usr/bin/leaks
@@ -15,5 +15,17 @@ Analysis Tool Version:  Xcode 8.2.1 (8C1002)
 ----
 
 leaks Report Version:  2.0
-Process 6166: 182 nodes malloced for 174 KB
-Process 6166: 0 leaks for 0 total leaked bytes.
+Process 7575: 194 nodes malloced for 83 KB
+Process 7575: 11 leaks for 176 total leaked bytes.
+Leak: 0x7fba39c031f0  size=16  zone: DefaultMallocZone_0x1019c3000  length: 2  "\0"
+Leak: 0x7fba39c03200  size=16  zone: DefaultMallocZone_0x1019c3000  length: 2  "\b"
+Leak: 0x7fba39c03210  size=16  zone: DefaultMallocZone_0x1019c3000  length: 2  "\a"
+Leak: 0x7fba39c03220  size=16  zone: DefaultMallocZone_0x1019c3000  length: 2  "\f"
+Leak: 0x7fba39c03230  size=16  zone: DefaultMallocZone_0x1019c3000  length: 2  "\r"
+Leak: 0x7fba39c03240  size=16  zone: DefaultMallocZone_0x1019c3000  length: 2  "\t"
+Leak: 0x7fba39c03250  size=16  zone: DefaultMallocZone_0x1019c3000  length: 2  "\n"
+Leak: 0x7fba39c03260  size=16  zone: DefaultMallocZone_0x1019c3000  length: 2  "\""
+Leak: 0x7fba39c03270  size=16  zone: DefaultMallocZone_0x1019c3000  length: 2  "\\"
+Leak: 0x7fba39c03280  size=16  zone: DefaultMallocZone_0x1019c3000  length: 2  "\v"
+Leak: 0x7fba39c032d0  size=16  zone: DefaultMallocZone_0x1019c3000
+	0x33335b1b 0xf000006d 0x00000000 0xf0000000 	.[33m...........
