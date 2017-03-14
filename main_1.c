@@ -35,7 +35,7 @@ int main()
 	printf("%1$d:%2$.*3$d:%4$.*3$d\n", hour, min, precision, sec);
 
 	printf("%sOrigin	unprint: %s\n", BLUE, "\\0, \\a, \\b, \\f, \\n, \\r, \\t, \\v, \\\", \\\\");
-	ft_printf("%sFt	unprint: %rs\n", YELLOW, "\0, \a, \b, \f, \n, \r, \t, \v, \", \\");
+	ft_printf("%sFt	unprint: %rs\n", YELLOW, "\a, \b, \f, \n, \0, \r, \t, \v, \", \\");
 	printf("%sOrigin	unprint: %s\n", BLUE, "\\0");
 	ft_printf("%sFt	unprint: %rs\n", YELLOW, "\0");
 

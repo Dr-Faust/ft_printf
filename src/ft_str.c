@@ -6,7 +6,7 @@
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 12:07:58 by opodolia          #+#    #+#             */
-/*   Updated: 2017/03/14 16:01:51 by opodolia         ###   ########.fr       */
+/*   Updated: 2017/03/14 16:14:32 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ static char	*ft_get_unprint_str(va_list ap)
 	int		i;
 
 	s = va_arg(ap, char *);
-	if (!(s[0]) && (!s[1]))
+	if (!s[0] && !s[1])
 			str = ft_strdup("\\0");
 	else
 	{
@@ -67,7 +67,7 @@ static char	*ft_get_unprint_str(va_list ap)
 		str = (char *)malloc(sizeof(char));
 		while (s[++i] || (s[i] == '\0' && s[i + 1]))
 		{
-			if (ft_unprint(s, i))
+			if (ft_strchr("\a\b\t\n\v\f\r\"\\", s[i]))			
 				str = ft_strjoin_free(str, ft_unprint(s, i));
 			else
 				str = ft_strjoin_free(str, ft_memset(ft_memalloc(2), s[i], 1));
