@@ -6,7 +6,7 @@
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 11:58:45 by opodolia          #+#    #+#             */
-/*   Updated: 2017/03/13 13:09:43 by opodolia         ###   ########.fr       */
+/*   Updated: 2017/03/14 15:30:00 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ static char	*ft_parse_neg(intmax_t n, t_mods *mods)
 		str = (n < 0) ? ft_itoa_qual((size_t)-n, mods, 1) :
 			ft_itoa_qual((size_t)n, mods, 1);
 	if (n < 0)
-		return (ft_strjoin("-", str));
+		return (ft_strjoin_free(ft_strdup("-"), str));
 	return (str);
 }
 

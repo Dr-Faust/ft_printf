@@ -6,7 +6,7 @@
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/03 19:37:54 by opodolia          #+#    #+#             */
-/*   Updated: 2016/12/10 17:54:33 by opodolia         ###   ########.fr       */
+/*   Updated: 2017/03/14 15:12:02 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,12 @@ char			*ft_itoa(intmax_t n)
 
 	nb = n;
 	size = ft_size(nb);
-	str = ft_strnew(size);
-	if (str == 0)
-		return (0);
 	if (n == 0)
 		str = ft_strdup("0");
+	else
+		str = ft_strnew(size);
+	if (str == 0)
+		return (0);
 	if (nb < 0)
 	{
 		str[0] = '-';

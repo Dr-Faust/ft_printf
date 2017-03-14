@@ -1,0 +1,19 @@
+Process:         a.out [6166]
+Path:            /nfs/2016/o/opodolia/projects/GitHub/printf/a.out
+Load Address:    0x1005ec000
+Identifier:      a.out
+Version:         ???
+Code Type:       X86-64
+Parent Process:  zsh [1593]
+
+Date/Time:       2017-03-14 15:29:47.729 +0200
+Launch Time:     2017-03-14 15:29:40.101 +0200
+OS Version:      Mac OS X 10.11.5 (15F34)
+Report Version:  7
+Analysis Tool:   /Applications/Xcode.app/Contents/Developer/usr/bin/leaks
+Analysis Tool Version:  Xcode 8.2.1 (8C1002)
+----
+
+leaks Report Version:  2.0
+Process 6166: 182 nodes malloced for 174 KB
+Process 6166: 0 leaks for 0 total leaked bytes.

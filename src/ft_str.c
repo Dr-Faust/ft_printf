@@ -6,7 +6,7 @@
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 12:07:58 by opodolia          #+#    #+#             */
-/*   Updated: 2017/03/13 13:10:56 by opodolia         ###   ########.fr       */
+/*   Updated: 2017/03/14 15:07:22 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ static char	*ft_reg_str(t_mods *mods, char *str)
 		new_str[i] = '\0';
 		new_str = ft_reg_mbstr(new_str);
 		mods->precision = -1;
+		free(str);
 		return (new_str);
 	}
 	else
