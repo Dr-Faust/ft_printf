@@ -64,6 +64,7 @@ int main()
 	printf("%sOrigin	'X':  # = %#X, no = %X\n", NORMAL, RENT1, RENT1);
 	ft_printf("%sFt	'X':  # = %#X, no = %X\n", NORMAL, RENT1, RENT1);
 
+
 /*	printf("*%e*\n", RENT);
 	printf("*%4.2f*\n", RENT);
 	printf("*%3.1f*\n", RENT);
