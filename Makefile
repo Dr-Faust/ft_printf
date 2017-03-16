@@ -6,7 +6,7 @@
 #    By: opodolia <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/03 13:55:22 by opodolia          #+#    #+#              #
-#    Updated: 2017/03/13 13:20:20 by opodolia         ###   ########.fr        #
+#    Updated: 2017/03/16 14:01:07 by opodolia         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,7 @@ OBJ1 = libft/ft_atoi.o libft/ft_bzero.o libft/ft_isalnum.o libft/ft_isalpha.o \
 	   libft/ft_toupper.o libft/ft_uitoa_base.o libft/ft_strnlen.o \
 	   libft/ft_wclen.o libft/ft_wcslen.o libft/ft_wcstombs.o \
 	   libft/ft_wctomb.o libft/ft_ld_intpower.o libft/ft_strjoin_free.o \
-	   libft/ft_ftoa_base.o libft/ft_strrev.o
+	   libft/ft_ftoa_base.o libft/ft_strrev.o libft/get_next_line.o
 
 OBJ2 = src/ft_printf.o src/ft_char.o src/ft_convert.o src/ft_str.o \
 	   src/ft_is_mb.o src/ft_flags.o src/ft_length.o src/ft_numb.o \
@@ -294,6 +294,9 @@ libft/ft_ftoa_base.o : libft/ft_ftoa_base.c
 
 libft/ft_strrev.o : libft/ft_strrev.c
 	$(CC) $(CFLAGS) -c libft/ft_strrev.c -o libft/ft_strrev.o
+	
+libft/get_next_line.o : libft/get_next_line.c
+	$(CC) $(CFLAGS) -c libft/get_next_line.c -o libft/get_next_line.o
 
 src/ft_printf.o : src/ft_printf.c
 	$(CC) $(CFLAGS) -c src/ft_printf.c -o src/ft_printf.o
