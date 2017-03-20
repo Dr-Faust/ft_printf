@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_qualifier.c                                     :+:      :+:    :+:   */
+/*   ft_lstrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/06 12:04:02 by opodolia          #+#    #+#             */
-/*   Updated: 2017/03/08 17:33:15 by opodolia         ###   ########.fr       */
+/*   Created: 2017/03/17 18:50:43 by opodolia          #+#    #+#             */
+/*   Updated: 2017/03/20 15:19:17 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int		ft_qualifier(char c, t_mods *mods)
+void	ft_lstrev(t_list **list)
 {
-	if (c == 'D' || c == 'C' || c == 'O' || c == 'U' || c == 'S')
+	t_list	*current;
+	t_list	*previous;
+	t_list	*next;
+
+	previous = NULL;
+	current = *list;
+	while (current != NULL)
 	{
-		mods->length = l;
-		c += 32;
+		next = current->next;
+		current->next = previous;
+		previous = current;
+		current = next;
 	}
-	if (c == 'p')
-	{
-		mods->length = l;
-		mods->flags.hash = yes;
-	}
-	mods->qualifier = c;
-	return (1);
+	*list = previous;
 }

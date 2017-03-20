@@ -6,7 +6,7 @@
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 15:10:35 by opodolia          #+#    #+#             */
-/*   Updated: 2017/03/16 14:19:00 by opodolia         ###   ########.fr       */
+/*   Updated: 2017/03/17 19:19:24 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <stdint.h>
 # include <wchar.h>
 # define MAX(a, b) (a > b ? a : b)
-# define BUFF_SIZE 32
+# define BUFF_SIZE 100000
 
 typedef struct		s_list
 {
@@ -80,6 +80,7 @@ char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strjoin_free(char *s1, char *s2);
 char				*ft_strtrim(char const *s);
 char				**ft_strsplit(char const *s, char c);
+int					ft_split_del(char ***split);
 void				ft_strrev(char *s);
 /*
 **					=====	[LIST] 	 =====
@@ -91,6 +92,8 @@ void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 int					ft_lstsize(t_list *lst);
+int					ft_lstcount(t_list *list);
+void				ft_lstrev(t_list **list);
 /*
 **					=====	[NUMB/CHAR]	  =====
 */
@@ -131,5 +134,6 @@ void				ft_putnbr_fd(int n, int fd);
 **					=====   [ELSE]   =====
 */
 int					get_next_line(const int fd, char **line);
+int					ft_count_words(char *str, char c);
 
 #endif

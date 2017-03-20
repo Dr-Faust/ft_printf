@@ -5,36 +5,22 @@
 #                                                     +:+ +:+         +:+      #
 #    By: opodolia <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2017/02/03 13:55:22 by opodolia          #+#    #+#              #
-#    Updated: 2017/03/20 20:16:39 by opodolia         ###   ########.fr        #
+#    Created: 2017/03/20 18:23:48 by opodolia          #+#    #+#              #
+#    Updated: 2017/03/20 18:38:34 by opodolia         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libftprintf.a
-NAME_BASE = libftprintf
+NAME = libft.a
+NAME_BASE = libft
 
 # compiler
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
-# ft_printf directories
-P_SRC_DIR = ./src/
-P_OBJ_DIR = ./obj/
-P_INC_DIR = ./includes/
-
 # libft directories
-L_SRC_DIR = ./libft/src/
-L_OBJ_DIR = ./libft/obj/
-L_INC_DIR = ./libft/includes/
-
-# ft_printf source files
-P_FILES = ft_printf.c ft_char.c ft_convert.c ft_str.c ft_is_mb.c ft_flags.c \
-		  ft_length.c ft_numb.c ft_no_qual.c ft_precision.c ft_qualifier.c \
-		  ft_push.c ft_size.c ft_width.c ft_float.c ft_put.c ft_unprint.c \
-		  ft_ftoa_handler.c ft_get_mantissa.c ft_quote_mark.c
-
-P_SRC = $(addprefix $(P_SRC_DIR), $(P_FILES))
-P_OBJ = $(addprefix $(P_OBJ_DIR), $(P_FILES:.c=.o))
+L_SRC_DIR = ./src/
+L_OBJ_DIR = ./obj/
+L_INC_DIR = ./includes/
 
 # libft source files
 L_FILES = ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c \
@@ -64,20 +50,13 @@ L_OBJ = $(addprefix $(L_OBJ_DIR), $(L_FILES:.c=.o))
 all: $(NAME)
 	echo "\033[38;5;44m☑️  ALL    $(NAME_BASE) is done\033[0m\033[K"
 
-$(P_OBJ_DIR)%.o: $(P_SRC_DIR)%.c
-	printf "\r\033[38;5;11m⌛  MAKE $(NAME_BASE) please wait ...\033[0m\033[K"
-	mkdir -p $(P_OBJ_DIR)
-	$(CC) $(CFLAGS) -I $(P_INC_DIR) -o $@ -c $<
-
 $(L_OBJ_DIR)%.o: $(L_SRC_DIR)%.c
 	printf "\r\033[38;5;11m⌛  MAKE $(NAME_BASE) please wait ...\033[0m\033[K"
 	mkdir -p $(L_OBJ_DIR)
 	$(CC) $(CFLAGC) -I $(L_INC_DIR) -o $@ -c $<
 
-OBJECTS = $(P_OBJ) $(L_OBJ)
-
-$(NAME): $(OBJECTS)
-	ar rc $(NAME) $(OBJECTS)
+$(NAME): $(L_OBJ)
+	ar rc $(NAME) $(L_OBJ)
 	ranlib $(NAME)
 	echo -en "\r\033[38;5;22m☑️  MAKE $(NAME_BASE)\033[0m\033[K"
 	echo "\r\033[38;5;184m👥  GROUP MEMBER(S):\033[0m\033[K"
@@ -85,7 +64,7 @@ $(NAME): $(OBJECTS)
 
 clean:
 	printf "\r\033[38;5;11m⌛  CLEAN  $(NAME_BASE) please wait ...\033[0m\033[K"
-	rm -rf $(P_OBJ_DIR) $(L_OBJ_DIR)
+	rm -fr $(L_OBJ_DIR)
 	printf "\r\033[38;5;11m☑️  CLEAN  $(NAME_BASE) is done\033[0m\033[K"
 
 fclean: clean

@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_qualifier.c                                     :+:      :+:    :+:   */
+/*   ft_lstcount.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/06 12:04:02 by opodolia          #+#    #+#             */
-/*   Updated: 2017/03/08 17:33:15 by opodolia         ###   ########.fr       */
+/*   Created: 2017/03/17 19:17:26 by opodolia          #+#    #+#             */
+/*   Updated: 2017/03/20 15:19:25 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int		ft_qualifier(char c, t_mods *mods)
+int		ft_lstcount(t_list *list)
 {
-	if (c == 'D' || c == 'C' || c == 'O' || c == 'U' || c == 'S')
+	int		i;
+
+	i = 0;
+	while (list)
 	{
-		mods->length = l;
-		c += 32;
+		list = list->next;
+		i++;
 	}
-	if (c == 'p')
-	{
-		mods->length = l;
-		mods->flags.hash = yes;
-	}
-	mods->qualifier = c;
-	return (1);
+	return (i);
 }

@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_qualifier.c                                     :+:      :+:    :+:   */
+/*   ft_count_words.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/06 12:04:02 by opodolia          #+#    #+#             */
-/*   Updated: 2017/03/08 17:33:15 by opodolia         ###   ########.fr       */
+/*   Created: 2017/03/20 15:20:27 by opodolia          #+#    #+#             */
+/*   Updated: 2017/03/20 15:20:28 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int		ft_qualifier(char c, t_mods *mods)
+int		ft_count_words(char *str, char c)
 {
-	if (c == 'D' || c == 'C' || c == 'O' || c == 'U' || c == 'S')
-	{
-		mods->length = l;
-		c += 32;
-	}
-	if (c == 'p')
-	{
-		mods->length = l;
-		mods->flags.hash = yes;
-	}
-	mods->qualifier = c;
-	return (1);
+	int		res;
+	int		i;
+
+	i = -1;
+	res = 0;
+	while (str[++i])
+		if (str[i] == c)
+			res++;
+	return (res);
 }

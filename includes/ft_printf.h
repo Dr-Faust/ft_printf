@@ -6,7 +6,7 @@
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 12:03:22 by opodolia          #+#    #+#             */
-/*   Updated: 2017/03/12 16:17:29 by opodolia         ###   ########.fr       */
+/*   Updated: 2017/03/20 17:55:10 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <stdlib.h>
 # include <stdint.h>
 # include <wchar.h>
-# include "../libft/libft.h"
+# include "../libft/includes/libft.h"
 
 # define RED  "\x1B[31m"
 # define GREEN  "\x1B[32m"
